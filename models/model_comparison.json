@@ -1,0 +1,79 @@
+{
+  "models": {
+    "random_forest": {
+      "model": "Random Forest",
+      "metrics": {
+        "rmse": 19.74103211272338,
+        "mae": 16.321330872930464,
+        "r2": 0.002679843730280962
+      },
+      "model_path": "models/random_forest_model.pkl",
+      "feature_engineer_path": "models/feature_engineer_rf.pkl"
+    },
+    "lightgbm": {
+      "model": "LightGBM",
+      "metrics": {
+        "rmse": 17.061816153614,
+        "mae": 13.602163027925636,
+        "r2": 0.2550186469970369
+      },
+      "model_path": "models/lightgbm_model.pkl",
+      "feature_engineer_path": "models/feature_engineer.pkl"
+    },
+    "xgboost": {
+      "model": "XGBoost",
+      "metrics": {
+        "rmse": 19.529091292045006,
+        "mae": 16.010354025778916,
+        "r2": 0.023979459255768498
+      },
+      "model_path": "models/xgboost_model.pkl",
+      "feature_engineer_path": "models/feature_engineer_xgb.pkl"
+    },
+    "catboost": {
+      "model": "CatBoost",
+      "metrics": {
+        "rmse": 14.922001117262655,
+        "mae": 11.670662373923518,
+        "r2": 0.4301651283945679
+      },
+      "model_path": "models/catboost_model.cbm",
+      "feature_engineer_path": "models/feature_engineer.pkl"
+    }
+  },
+  "comparison_table": [
+    {
+      "model": "catboost",
+      "rmse": 14.922001117262655,
+      "mae": 11.670662373923518,
+      "r2": 0.4301651283945679
+    },
+    {
+      "model": "lightgbm",
+      "rmse": 17.061816153614,
+      "mae": 13.602163027925636,
+      "r2": 0.2550186469970369
+    },
+    {
+      "model": "xgboost",
+      "rmse": 19.529091292045006,
+      "mae": 16.010354025778916,
+      "r2": 0.023979459255768498
+    },
+    {
+      "model": "random_forest",
+      "rmse": 19.74103211272338,
+      "mae": 16.321330872930464,
+      "r2": 0.002679843730280962
+    }
+  ],
+  "summary": {
+    "best_model": "catboost",
+    "best_metrics": {
+      "rmse": 14.922001117262655,
+      "mae": 11.670662373923518,
+      "r2": 0.4301651283945679
+    },
+    "total_models_trained": 4
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "feature_importance": [
+    {
+      "feature": "category",
+      "importance": 7.237771192156279
+    },
+    {
+      "feature": "actual_price",
+      "importance": 3.9128010252165497
+    },
+    {
+      "feature": "review_title",
+      "importance": 3.6433666893285963
+    },
+    {
+      "feature": "about_product",
+      "importance": 1.9913634322732554
+    },
+    {
+      "feature": "discounted_price",
+      "importance": 1.345469686377692
+    },
+    {
+      "feature": "rating",
+      "importance": 0.9769119621492836
+    },
+    {
+      "feature": "rating_count",
+      "importance": 0.3160586632034703
+    },
+    {
+      "feature": "user_name",
+      "importance": 0.2592675059032705
+    },
+    {
+      "feature": "product_name",
+      "importance": 0.10724127895984406
+    },
+    {
+      "feature": "product_id",
+      "importance": 0.0
+    },
+    {
+      "feature": "user_id",
+      "importance": 0.0
+    },
+    {
+      "feature": "review_id",
+      "importance": 0.0
+    },
+    {
+      "feature": "review_content",
+      "importance": 0.0
+    },
+    {
+      "feature": "img_link",
+      "importance": 0.0
+    },
+    {
+      "feature": "product_link",
+      "importance": 0.0
+    }
+  ],
+  "top_10_features": [
+    {
+      "feature": "category",
+      "importance": 7.237771192156279
+    },
+    {
+      "feature": "actual_price",
+      "importance": 3.9128010252165497
+    },
+    {
+      "feature": "review_title",
+      "importance": 3.6433666893285963
+    },
+    {
+      "feature": "about_product",
+      "importance": 1.9913634322732554
+    },
+    {
+      "feature": "discounted_price",
+      "importance": 1.345469686377692
+    },
+    {
+      "feature": "rating",
+      "importance": 0.9769119621492836
+    },
+    {
+      "feature": "rating_count",
+      "importance": 0.3160586632034703
+    },
+    {
+      "feature": "user_name",
+      "importance": 0.2592675059032705
+    },
+    {
+      "feature": "product_name",
+      "importance": 0.10724127895984406
+    },
+    {
+      "feature": "product_id",
+      "importance": 0.0
+    }
+  ],
+  "category_breakdown": {
+    "Computers&Accessories|Accessories&Peripherals|Cables&Accessories|Cables|USBCables": {
+      "sample_count": 16,
+      "top_features": [
+        {
+          "feature": "category",
+          "importance": 10.1058043535167
+        },
+        {
+          "feature": "review_title",
+          "importance": 4.0388322402335985
+        },
+        {
+          "feature": "actual_price",
+          "importance": 2.8582795874449927
+        },
+        {
+          "feature": "about_product",
+          "importance": 1.782949739085487
+        },
+        {
+          "feature": "discounted_price",
+          "importance": 1.356244175316255
+        }
+      ]
+    },
+    "Electronics|Mobiles&Accessories|Smartphones&BasicMobiles|Smartphones": {
+      "sample_count": 6,
+      "top_features": [
+        {
+          "feature": "category",
+          "importance": 9.057692797683742
+        },
+        {
+          "feature": "review_title",
+          "importance": 3.7031942650233822
+        },
+        {
+          "feature": "actual_price",
+          "importance": 2.794936160981743
+        },
+        {
+          "feature": "about_product",
+          "importance": 2.2181355456932104
+        },
+        {
+          "feature": "discounted_price",
+          "importance": 1.3239711678259394
+        }
+      ]
+    },
+    "_low_frequency_combined": {
+      "sample_count": 78,
+      "categories_included": 52,
+      "top_features": [
+        {
+          "feature": "category",
+          "importance": 6.509462727862281
+        },
+        {
+          "feature": "actual_price",
+          "importance": 4.215102719956981
+        },
+        {
+          "feature": "review_title",
+          "importance": 3.5576434294741253
+        },
+        {
+          "feature": "about_product",
+          "importance": 2.0166709503563904
+        },
+        {
+          "feature": "discounted_price",
+          "importance": 1.3449132669968382
+        }
+      ]
+    }
+  },
+  "statistical_tests": {
+    "top_features": [
+      {
+        "feature": "category",
+        "test": "one-sample t-test (vs zero)",
+        "t_statistic": 24.722503771711796,
+        "p_value": 3.7623851048921274e-44,
+        "significant": 

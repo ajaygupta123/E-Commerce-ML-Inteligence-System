@@ -1,2 +1,0 @@
-Method,Name,Error,Occurrences
-POST,/v1/answer_question,RemoteDisconnected('Remote end closed connection without response'),1

@@ -42,11 +42,14 @@ data/processed/*
 
 # Models
 models/*.cbm
+!models/tuned_catboost_model.cbm
 models/*.pkl
 models/*.joblib
 models/*.json
 !models/.gitkeep
 !models/model_metadata.json
+!models/model_comparison.json
+!models/feature_importance.json
 
 # Environment
 .env
@@ -64,6 +67,14 @@ htmlcov/
 # Logs
 *.log
 logs/
+
+# Training artifacts
+catboost_info/
+*.tsv
+
+# Test reports
+reports/
+*.csv
 
 # OS
 .DS_Store
