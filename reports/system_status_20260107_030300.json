@@ -1,0 +1,72 @@
+{
+  "timestamp": "2026-01-07T03:03:00.288997",
+  "health": {
+    "status": "healthy",
+    "status_code": 200,
+    "response_time_ms": 7.462
+  },
+  "ready": {
+    "status": "ready",
+    "status_code": 200,
+    "details": {
+      "status": "ready",
+      "checks": {
+        "database": true,
+        "qdrant": true,
+        "model": true,
+        "ollama": true
+      }
+    }
+  },
+  "metrics": {
+    "python_gc_objects_collected_total": 20481494.0,
+    "python_gc_objects_uncollectable_total": 0.0,
+    "python_gc_collections_total": 241.0,
+    "python_info": 1.0,
+    "process_virtual_memory_bytes": 7882977280.0,
+    "process_resident_memory_bytes": 634597376.0,
+    "process_start_time_seconds": 1767734037.97,
+    "process_cpu_seconds_total": 384.46000000000004,
+    "process_open_fds": 134.0,
+    "process_max_fds": 20480.0,
+    "http_requests_total": 2.0,
+    "http_requests_created": 1767735043.0940664,
+    "http_request_duration_seconds_bucket": 8627.0,
+    "http_request_duration_seconds_count": 8627.0,
+    "http_request_duration_seconds_sum": 22751.52613377571,
+    "http_request_duration_seconds_created": 1767734179.1150408
+  },
+  "containers": {
+    "ecommerce-api": {
+      "cpu_percent": "0.12",
+      "memory_usage": "611.9MiB / 11.73GiB",
+      "memory_percent": "5.10",
+      "network_io": "843MB / 103MB",
+      "block_io": "891MB / 795MB"
+    },
+    "ecommerce-postgres": {
+      "cpu_percent": "0.03",
+      "memory_usage": "201.9MiB / 11.73GiB",
+      "memory_percent": "1.68",
+      "network_io": "30.3MB / 28.8MB",
+      "block_io": "484MB / 274MB"
+    },
+    "ecommerce-qdrant": {
+      "cpu_percent": "0.10",
+      "memory_usage": "88.16MiB / 11.73GiB",
+      "memory_percent": "0.73",
+      "network_io": "25.3MB / 4.04MB",
+      "block_io": "1.99GB / 2.3MB"
+    },
+    "ecommerce-ollama": {
+      "cpu_percent": "399.99",
+      "memory_usage": "2.372GiB / 4GiB",
+      "memory_percent": "59.29",
+      "network_io": "1.08MB / 341kB",
+      "block_io": "3.67GB / 106MB"
+    }
+  },
+  "database_connections": {
+    "note": "Connection stats require direct DB access"
+  }
+}

@@ -1,0 +1,36 @@
+version: "3.8"
+
+# Test environment configuration
+services:
+  api-test:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://test:test@postgres-test:5432/test_db
+      - QDRANT_HOST=qdrant-test
+      - QDRANT_PORT=6333
+      - OLLAMA_HOST=ollama-test
+      - OLLAMA_PORT=11434
+      - TESTING=true
+    depends_on:
+      - postgres-test
+      - qdrant-test
+
+  postgres-test:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: test_db
+    ports:
+      - "5433:5432"
+
+  qdrant-test:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6335:6333"
+
+
+
+

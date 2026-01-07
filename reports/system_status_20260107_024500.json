@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-01-07T02:45:00.097404",
+  "health": {
+    "status": "unreachable",
+    "error": "HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=5)"
+  },
+  "ready": {
+    "status": "unreachable",
+    "error": "HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=5)"
+  },
+  "metrics": {
+    "error": "HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=10)"
+  },
+  "containers": {
+    "ecommerce-api": {
+      "cpu_percent": "6.98",
+      "memory_usage": "389.4MiB / 11.73GiB",
+      "memory_percent": "3.24",
+      "network_io": "523MB / 1.17MB",
+      "block_io": "14.4MB / 179MB"
+    },
+    "ecommerce-postgres": {
+      "cpu_percent": "0.02",
+      "memory_usage": "29.32MiB / 11.73GiB",
+      "memory_percent": "0.24",
+      "network_io": "16.3MB / 14.5MB",
+      "block_io": "403MB / 210MB"
+    },
+    "ecommerce-qdrant": {
+      "cpu_percent": "0.13",
+      "memory_usage": "64.84MiB / 11.73GiB",
+      "memory_percent": "0.54",
+      "network_io": "11.8MB / 1.92MB",
+      "block_io": "1.43GB / 2.3MB"
+    },
+    "ecommerce-ollama": {
+      "cpu_percent": "0.00",
+      "memory_usage": "2.352GiB / 4GiB",
+      "memory_percent": "58.81",
+      "network_io": "824kB / 260kB",
+      "block_io": "3.42GB / 106MB"
+    }
+  },
+  "database_connections": {
+    "active_connections": 2,
+    "max_connections": 150,
+    "utilization_percent": 1.3
+  }
+}

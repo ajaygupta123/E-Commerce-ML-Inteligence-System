@@ -1,0 +1,88 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    container_name: ecommerce-api
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://app:password@postgres:5432/ecommerce
+      - QDRANT_HOST=qdrant
+      - QDRANT_PORT=6333
+      - OLLAMA_HOST=ollama
+      - OLLAMA_PORT=11434
+      - LLM_MODEL=llama3.2:3b
+      - CACHE_TYPE=memory
+      - LOG_LEVEL=INFO
+      - MODEL_PATH=/app/models/tuned_catboost_model.cbm
+      - EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+      - QDRANT_COLLECTION_NAME=products
+      - RATE_LIMIT_PER_MINUTE=60
+      - RATE_LIMIT_ENABLED=${RATE_LIMIT_ENABLED:-true}
+    volumes:
+      - ./models:/app/models:ro
+      - ./scripts:/app/scripts:ro
+      - ./data:/app/data:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      qdrant:
+        condition: service_started  # Qdrant starts quickly, no need for healthcheck
+      ollama:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  postgres:
+    image: postgres:17-alpine
+    container_name: ecommerce-postgres
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: ecommerce
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d ecommerce"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: ecommerce-qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    # Qdrant starts quickly, healthcheck not needed
+    # The API will handle connection errors gracefully
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ecommerce-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_NUM_PARALLEL=2
+      - OLLAMA_MAX_LOADED_MODELS=1
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+
+volumes:
+  postgres_data:
+  qdrant_data:
+  ollama_data:
+
+

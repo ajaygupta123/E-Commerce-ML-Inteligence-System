@@ -1,0 +1,39 @@
+# Core API
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Database
+sqlalchemy[asyncio]==2.0.23
+asyncpg==0.29.0
+alembic==1.12.1
+psycopg2-binary==2.9.9  # For Alembic migrations (sync PostgreSQL driver)
+
+# Vector Database
+qdrant-client==1.7.0
+
+# ML
+catboost==1.2.2
+lightgbm==4.1.0
+scikit-learn==1.3.2
+shap==0.43.0
+pandas==2.1.3
+numpy==1.26.2
+scipy==1.11.4
+
+# Embeddings
+sentence-transformers==2.2.2
+huggingface-hub==0.19.4  # Compatible version for sentence-transformers 2.2.2
+
+# LLM
+httpx==0.25.2
+
+# Observability
+prometheus-client==0.19.0
+
+# Utilities
+python-multipart==0.0.6
+apscheduler==3.10.4  # For scheduled drift detection
+
+

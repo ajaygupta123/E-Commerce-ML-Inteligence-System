@@ -1,0 +1,7 @@
+Method,Name,Error,Occurrences
+POST,/v1/answer_question,HTTPError('429 Client Error: Too Many Requests for url: /v1/answer_question'),3792
+GET,/health,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/health,HTTPError('429 Client Error: Too Many Requests for url: /health'),7636
+POST,/v1/answer_question,HTTPError('500 Server Error: Internal Server Error for url: /v1/answer_question'),24
+POST,/v1/predict_discount,HTTPError('429 Client Error: Too Many Requests for url: /v1/predict_discount'),6331
+POST,/v1/explain,HTTPError('429 Client Error: Too Many Requests for url: /v1/explain'),2360

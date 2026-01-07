@@ -1,0 +1,23 @@
+{
+  "model_type": "CatBoostRegressor",
+  "version": "1.0.0",
+  "training_date": "2024-01-01",
+  "framework": "CatBoost",
+  "features": [
+    "price",
+    "category",
+    "rating",
+    "num_reviews",
+    "brand"
+  ],
+  "target": "discount_percentage",
+  "performance": {
+    "rmse": 0.0,
+    "mae": 0.0,
+    "r2": 0.0
+  }
+}
+
+
+
+

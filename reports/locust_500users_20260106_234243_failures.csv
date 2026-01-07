@@ -1,0 +1,6 @@
+Method,Name,Error,Occurrences
+POST,/v1/answer_question,RemoteDisconnected('Remote end closed connection without response'),10
+GET,/health,RemoteDisconnected('Remote end closed connection without response'),2
+POST,/v1/answer_question,HTTPError('500 Server Error: Internal Server Error for url: /v1/answer_question'),4279
+POST,/v1/predict_discount,RemoteDisconnected('Remote end closed connection without response'),8
+POST,/v1/explain,RemoteDisconnected('Remote end closed connection without response'),6

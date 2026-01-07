@@ -1,0 +1,4 @@
+Method,Name,Error,Occurrences
+POST,/v1/answer_question,HTTPError('429 Client Error: Too Many Requests for url: /v1/answer_question'),8
+GET,/health,HTTPError('429 Client Error: Too Many Requests for url: /health'),39
+POST,/v1/predict_discount,HTTPError('429 Client Error: Too Many Requests for url: /v1/predict_discount'),17
