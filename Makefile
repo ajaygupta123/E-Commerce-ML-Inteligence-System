@@ -1,7 +1,7 @@
 .PHONY: up down test lint train seed pull-model logs test-unit test-integration test-security test-all load-test performance-test test-requirements
 
 up:
-	docker-compose up -d
+	docker-compose up -d --build
 
 down:
 	docker-compose down

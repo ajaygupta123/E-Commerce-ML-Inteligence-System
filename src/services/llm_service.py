@@ -163,7 +163,38 @@ class LLMService:
                     
                 except httpx.HTTPStatusError as e:
                     last_error = e
-                    # Don't retry on client errors (4xx)
+                    # Handle 404 - model not found, try to pull it
+                    if e.response.status_code == 404:
+                        error_text = e.response.text
+                        if "model" in error_text.lower() and "not found" in error_text.lower():
+                            logger.warning(f"Model {self.model} not found. Attempting to pull...")
+                            try:
+                                # Try to pull the model
+                                pull_response = await self.client.post(
+                                    f"{self.base_url}/api/pull",
+                                    json={"name": self.model},
+                                    timeout=300.0
+                                )
+                                if pull_response.status_code == 200:
+                                    logger.info(f"Successfully pulled model {self.model} on-demand")
+                                    # Wait a moment for model to be ready
+                                    await asyncio.sleep(2)
+                                    # Retry the request
+                                    continue
+                                else:
+                                    logger.warning(f"Failed to pull model: {pull_response.status_code}")
+                            except Exception as pull_error:
+                                logger.warning(f"Error pulling model: {pull_error}")
+                        
+                        # If we've exhausted retries or pull failed, raise error
+                        if attempt >= self.max_retries - 1:
+                            logger.error(f"LLM model {self.model} not found and could not be pulled: {error_text}")
+                            raise LLMError(f"LLM model {self.model} not found. Please ensure the model is available or wait for automatic pull to complete.")
+                        # Wait before retry
+                        await asyncio.sleep(self.retry_delay * (2 ** attempt))
+                        continue
+                    
+                    # Don't retry on other client errors (4xx)
                     if 400 <= e.response.status_code < 500:
                         logger.error(f"LLM client error: {e.response.status_code} - {e.response.text}")
                         raise LLMError(f"LLM client error: {e.response.status_code}")
